@@ -10,3 +10,18 @@ The initial runs used Sir v0.1.0 (`da3a235a00d8727ea9f2dfd4ac5ce4548fff39a0`) an
 In both projects setup's dry run created neither dependency directory. The check workflow returned failure for a command that exited 7. The release-note workflow returned failure for an unknown ref. All runs used named inputs where required and ran without interactive prompts. For the CLI's checks, use a separate empty `HOME` for Pint and Pest so the test suite does not discover the registry workflows from the caller's Sir profile.
 
 The CLI's development lock requires PHP 8.3 or later. Sir v0.1.0's production installation was also verified on PHP 8.2.
+
+## Sir v0.3 read-only agent checks
+
+An independent agent installed CLI candidate
+`8475c7d8ef0e84c291511e2bab8dfd4e7c744d75` in a fresh Linux container and
+pinned this registry to `ef3b005ddd174b2cb2593f2c884b0e901132aff0`.
+It discovered, inspected, and dry-ran `project-setup`, `pre-release-checks`,
+and `release-notes` in JSON and human-readable modes.
+
+All JSON responses parsed and showed the expected workflow, source path,
+inputs, and one shell step per workflow. The previews omitted the supplied
+check command and Git ref. The setup preview left the target's fixture
+lockfiles byte-identical and created no dependency directories. The checks
+preview did not write its test marker, and the notes preview succeeded in a
+directory without Git history. The CLI's complete local smoke suite passed.
