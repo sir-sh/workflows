@@ -1,0 +1,10 @@
+description: A local greeting workflow
+
+inputs:
+  name:
+    type: string
+    required: true
+
+steps:
+  - name: Write greeting
+    shell: "printf 'Hello, %s!\\n' {{shellQuote(name)}} > greeting.txt"

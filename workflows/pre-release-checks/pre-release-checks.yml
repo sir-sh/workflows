@@ -1,0 +1,8 @@
+description: Run the project's existing release checks in the current directory
+inputs:
+  command:
+    type: string
+    required: true
+steps:
+  - name: Run project checks
+    shell: sh -eu -c {{shellQuote(command)}}
