@@ -33,3 +33,5 @@ From the target repository, substitute your actual previous release tag for
 sir run release-notes --dry-run --non-interactive --input=base=v0.1.0
 sir run release-notes --non-interactive --input=base=v0.1.0
 ```
+
+See [validation results](VALIDATION.md) for real-project runs.
