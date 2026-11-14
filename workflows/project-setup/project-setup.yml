@@ -1,0 +1,15 @@
+description: Install locked project dependencies in the current directory
+steps:
+  - name: Install dependencies
+    shell: |
+      set -eu
+      if [ ! -f composer.lock ] && [ ! -f package-lock.json ]; then
+        printf '%s\n' 'Expected composer.lock or package-lock.json in the project root.' >&2
+        exit 2
+      fi
+      if [ -f composer.lock ]; then
+        composer install --no-interaction --prefer-dist
+      fi
+      if [ -f package-lock.json ]; then
+        npm ci --ignore-scripts
+      fi

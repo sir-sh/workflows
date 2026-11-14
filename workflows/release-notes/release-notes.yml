@@ -1,0 +1,12 @@
+description: Preview commits since a selected ref without publishing a release
+inputs:
+  base:
+    type: string
+    required: true
+steps:
+  - name: Preview release notes
+    shell: |
+      set -eu
+      base=$(git rev-parse --verify --end-of-options {{shellQuote(base)}}'^{commit}')
+      git merge-base --is-ancestor "$base" HEAD
+      git --no-pager log --format='- %s (%h)' "$base..HEAD"
