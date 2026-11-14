@@ -8,6 +8,8 @@ Reusable workflows for [Sir](https://www.sir.sh/docs/QUICKSTART). Use Sir in a L
 | [pre-release-checks](workflows/pre-release-checks) | Run a project's existing release checks |
 | [release-notes](workflows/release-notes) | Preview a commit list since a selected ref |
 
+The [greeting demo](workflows/hello) and [Ulties review example](workflows/review) were moved here from the CLI repository.
+
 ## Install a pinned workflow
 
 Copy the full commit SHA of the registry revision you reviewed and replace
