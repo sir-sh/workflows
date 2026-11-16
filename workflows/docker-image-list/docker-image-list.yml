@@ -1,0 +1,6 @@
+description: List images stored on the current Docker daemon.
+
+steps:
+  - name: Local Docker images
+    shell: |
+      docker image ls

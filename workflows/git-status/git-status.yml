@@ -1,0 +1,6 @@
+description: Show the current branch and uncommitted changes.
+
+steps:
+  - name: Git working tree status
+    shell: |
+      git status --short --branch

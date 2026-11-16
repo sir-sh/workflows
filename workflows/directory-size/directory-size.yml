@@ -1,0 +1,6 @@
+description: Report the disk space used by the current directory.
+
+steps:
+  - name: Directory size
+    shell: |
+      du -sh .

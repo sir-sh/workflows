@@ -1,0 +1,17 @@
+description: "List archive entries without extracting any files."
+
+inputs:
+  path:
+    type: string
+    required: true
+
+steps:
+  - name: "List ZIP contents"
+    shell: |
+      python3 - {{shellQuote(path)}} <<'PYTHON'
+      import sys
+      from zipfile import ZipFile
+
+      with ZipFile(sys.argv[1]) as archive:
+          archive.printdir()
+      PYTHON

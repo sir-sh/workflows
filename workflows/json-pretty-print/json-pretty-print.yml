@@ -1,0 +1,11 @@
+description: "Format a local JSON file for inspection and write the result to standard output."
+
+inputs:
+  path:
+    type: string
+    required: true
+
+steps:
+  - name: "Pretty-print JSON"
+    shell: |
+      python3 -m json.tool < {{shellQuote(path)}}

@@ -1,0 +1,6 @@
+description: List up to ten tags in newest-first order.
+
+steps:
+  - name: Recent Git tags
+    shell: |
+      git for-each-ref --count=10 --sort=-creatordate --format='%(refname:short)' refs/tags

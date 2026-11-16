@@ -1,0 +1,6 @@
+description: List local branches in most recently updated order.
+
+steps:
+  - name: Local Git branches
+    shell: |
+      git for-each-ref --sort=-committerdate refs/heads

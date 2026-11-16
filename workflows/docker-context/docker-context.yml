@@ -1,0 +1,6 @@
+description: "Print the active Docker context before running commands against a daemon."
+
+steps:
+  - name: "Current Docker context"
+    shell: |
+      docker context show

@@ -1,0 +1,6 @@
+description: "Count commits per author on the current branch using the repository mailmap."
+
+steps:
+  - name: "Git contributors"
+    shell: |
+      git shortlog -sn HEAD

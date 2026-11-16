@@ -1,0 +1,24 @@
+description: "Check that each CSV record has the same number of fields as the header."
+
+inputs:
+  path:
+    type: string
+    required: true
+
+steps:
+  - name: "Check CSV column widths"
+    shell: |
+      python3 - {{shellQuote(path)}} <<'PYTHON'
+      import csv
+      import sys
+
+      with open(sys.argv[1], encoding="utf-8-sig", newline="") as source:
+          rows = csv.reader(source, strict=True)
+          header = next(rows, [])
+          if not header:
+              sys.exit("The CSV header is missing.")
+          for row in rows:
+              if len(row) != len(header):
+                  sys.exit(f"Record ending at line {rows.line_num}: expected {len(header)} fields, found {len(row)}.")
+      print(f"CSV records match the {len(header)} header fields.")
+      PYTHON

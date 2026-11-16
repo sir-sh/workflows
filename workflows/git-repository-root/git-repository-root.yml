@@ -1,0 +1,6 @@
+description: "Print the root of the current Git worktree for scripts and editor tasks."
+
+steps:
+  - name: "Git repository root"
+    shell: |
+      git rev-parse --show-toplevel

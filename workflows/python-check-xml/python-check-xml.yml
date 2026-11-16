@@ -1,0 +1,17 @@
+description: "Check that a local XML document is well-formed without modifying it."
+
+inputs:
+  path:
+    type: string
+    required: true
+
+steps:
+  - name: "Validate XML syntax"
+    shell: |
+      python3 - {{shellQuote(path)}} <<'PYTHON'
+      import sys
+      from xml.etree import ElementTree
+
+      ElementTree.parse(sys.argv[1])
+      print("XML is well-formed")
+      PYTHON

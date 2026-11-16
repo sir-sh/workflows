@@ -1,0 +1,11 @@
+description: "Show the latest commit that changed a repository-relative path."
+
+inputs:
+  path:
+    type: string
+    required: true
+
+steps:
+  - name: "Last Git change to a file"
+    shell: |
+      git --no-pager --literal-pathspecs log -1 --format=fuller -- {{shellQuote(path)}}

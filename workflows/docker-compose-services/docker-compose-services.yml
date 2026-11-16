@@ -1,0 +1,6 @@
+description: "Show the status of all services in the current Compose project, including stopped services."
+
+steps:
+  - name: "Docker Compose services"
+    shell: |
+      docker compose ps --all

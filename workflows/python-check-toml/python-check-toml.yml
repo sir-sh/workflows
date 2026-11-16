@@ -1,0 +1,18 @@
+description: "Check that a file contains valid TOML without modifying it."
+
+inputs:
+  path:
+    type: string
+    required: true
+
+steps:
+  - name: "Validate TOML"
+    shell: |
+      python3 - {{shellQuote(path)}} <<'PYTHON'
+      import sys
+      import tomllib
+
+      with open(sys.argv[1], "rb") as source:
+          tomllib.load(source)
+      print("TOML is valid")
+      PYTHON

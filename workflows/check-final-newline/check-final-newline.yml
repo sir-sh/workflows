@@ -1,0 +1,21 @@
+description: "Check that a nonempty text file ends with a newline. Empty files pass."
+
+inputs:
+  path:
+    type: string
+    required: true
+
+steps:
+  - name: "Check final newline"
+    shell: |
+      python3 - {{shellQuote(path)}} <<'PYTHON'
+      import os
+      import sys
+
+      with open(sys.argv[1], "rb") as source:
+          if source.seek(0, os.SEEK_END):
+              source.seek(-1, os.SEEK_END)
+              if source.read(1) != b"\n":
+                  sys.exit("The file is missing a final newline.")
+      print("Final newline check passed")
+      PYTHON

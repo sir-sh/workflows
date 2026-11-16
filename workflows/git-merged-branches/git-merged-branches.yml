@@ -1,0 +1,6 @@
+description: List local branches already merged into the current commit.
+
+steps:
+  - name: Merged Git branches
+    shell: |
+      git --no-pager branch --list --merged HEAD

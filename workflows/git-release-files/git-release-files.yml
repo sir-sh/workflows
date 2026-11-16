@@ -1,0 +1,13 @@
+description: "List added, modified, and deleted paths between a chosen Git ref and HEAD."
+
+inputs:
+  base:
+    type: string
+    required: true
+
+steps:
+  - name: "Git release file changes"
+    shell: |
+      set -eu
+      base=$(git rev-parse --verify --end-of-options {{shellQuote(base)}}'^{commit}')
+      git --no-pager diff --name-status "$base" HEAD --

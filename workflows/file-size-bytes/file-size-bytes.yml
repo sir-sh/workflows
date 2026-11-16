@@ -1,0 +1,11 @@
+description: "Print the exact byte count of a named file."
+
+inputs:
+  path:
+    type: string
+    required: true
+
+steps:
+  - name: "File size in bytes"
+    shell: |
+      wc -c < {{shellQuote(path)}}

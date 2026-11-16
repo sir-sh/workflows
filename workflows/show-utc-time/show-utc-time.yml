@@ -1,0 +1,6 @@
+description: Print the current UTC time in an ISO 8601 format.
+
+steps:
+  - name: Show UTC time
+    shell: |
+      date -u '+%Y-%m-%dT%H:%M:%SZ'

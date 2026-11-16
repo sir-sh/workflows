@@ -1,0 +1,13 @@
+description: Report installed versions of Git, Node.js, npm, PHP, Python, and Docker.
+
+steps:
+  - name: Developer tool versions
+    shell: |
+      set -eu
+      for tool in git node npm php python3 docker; do
+        if command -v "$tool" >/dev/null 2>&1; then
+          "$tool" --version
+        else
+          printf '%s: unavailable\n' "$tool"
+        fi
+      done

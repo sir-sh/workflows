@@ -1,0 +1,13 @@
+description: "Check JavaScript syntax with Node.js without evaluating the file."
+
+inputs:
+  path:
+    type: string
+    required: true
+
+steps:
+  - name: "Check JavaScript syntax"
+    shell: |
+      path={{shellQuote(path)}}
+      [ "$path" != - ] || path=./-
+      node --check -- "$path"

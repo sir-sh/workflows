@@ -1,0 +1,11 @@
+description: "Parse a POSIX shell script without executing its commands."
+
+inputs:
+  path:
+    type: string
+    required: true
+
+steps:
+  - name: "Check POSIX shell syntax"
+    shell: |
+      sh -n -- {{shellQuote(path)}}

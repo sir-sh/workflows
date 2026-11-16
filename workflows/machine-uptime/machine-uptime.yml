@@ -1,0 +1,6 @@
+description: Show how long the machine has been up and its load averages.
+
+steps:
+  - name: Machine uptime
+    shell: |
+      uptime

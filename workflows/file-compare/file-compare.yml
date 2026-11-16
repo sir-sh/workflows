@@ -1,0 +1,23 @@
+description: "Show a unified diff between two local text files. Differences are a successful result."
+
+inputs:
+  before:
+    type: string
+    required: true
+  after:
+    type: string
+    required: true
+
+steps:
+  - name: "Compare two text files"
+    shell: |
+      set -eu
+      before={{shellQuote(before)}}
+      after={{shellQuote(after)}}
+      [ "$before" != - ] || before=./-
+      [ "$after" != - ] || after=./-
+      status=0
+      diff -u -- "$before" "$after" || status=$?
+      if [ "$status" -gt 1 ]; then
+        exit "$status"
+      fi

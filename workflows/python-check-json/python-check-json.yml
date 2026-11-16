@@ -1,0 +1,11 @@
+description: Check that a named file contains parseable JSON.
+
+inputs:
+  path:
+    type: string
+    required: true
+
+steps:
+  - name: Validate JSON
+    shell: |
+      python3 -c 'import json, sys; json.load(open(sys.argv[1], encoding="utf-8")); print("JSON is valid")' {{shellQuote(path)}}

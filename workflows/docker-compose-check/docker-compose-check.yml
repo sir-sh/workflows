@@ -1,0 +1,6 @@
+description: "Validate the Compose configuration without starting services or printing the rendered configuration."
+
+steps:
+  - name: "Check Docker Compose configuration"
+    shell: |
+      docker compose config --quiet
