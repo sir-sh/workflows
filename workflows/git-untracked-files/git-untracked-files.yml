@@ -1,0 +1,6 @@
+description: "List untracked files while respecting Git ignore rules."
+
+steps:
+  - name: "Untracked Git files"
+    shell: |
+      git -c core.quotePath=false ls-files --others --exclude-standard

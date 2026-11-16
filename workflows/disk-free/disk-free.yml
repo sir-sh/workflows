@@ -1,0 +1,6 @@
+description: Show available space on the filesystem containing the current directory.
+
+steps:
+  - name: Disk free space
+    shell: |
+      df -h .

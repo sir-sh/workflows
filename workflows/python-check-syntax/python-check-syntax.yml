@@ -1,0 +1,19 @@
+description: "Parse a Python source file without importing it or writing bytecode."
+
+inputs:
+  path:
+    type: string
+    required: true
+
+steps:
+  - name: "Check Python syntax"
+    shell: |
+      python3 - {{shellQuote(path)}} <<'PYTHON'
+      import sys
+      import tokenize
+
+      path = sys.argv[1]
+      with tokenize.open(path) as source:
+          compile(source.read(), path, 'exec')
+      print("Python syntax is valid")
+      PYTHON

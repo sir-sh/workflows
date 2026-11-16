@@ -1,0 +1,6 @@
+description: Print the kernel name, release, and machine architecture.
+
+steps:
+  - name: System information
+    shell: |
+      uname -srm

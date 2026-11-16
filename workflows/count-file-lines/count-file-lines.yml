@@ -1,0 +1,11 @@
+description: Count newline characters in a named file.
+
+inputs:
+  path:
+    type: string
+    required: true
+
+steps:
+  - name: Count file lines
+    shell: |
+      wc -l < {{shellQuote(path)}}

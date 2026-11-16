@@ -1,0 +1,6 @@
+description: Show the last ten commits on the current branch.
+
+steps:
+  - name: Recent Git commits
+    shell: |
+      git --no-pager log -10 --oneline

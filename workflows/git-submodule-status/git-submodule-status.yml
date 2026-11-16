@@ -1,0 +1,6 @@
+description: "Inspect checked-out revisions and initialization status of Git submodules."
+
+steps:
+  - name: "Git submodule status"
+    shell: |
+      git submodule status --recursive

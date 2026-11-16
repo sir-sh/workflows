@@ -1,0 +1,6 @@
+description: Summarize unstaged changes to tracked files.
+
+steps:
+  - name: Unstaged Git diff summary
+    shell: |
+      git --no-pager diff --stat

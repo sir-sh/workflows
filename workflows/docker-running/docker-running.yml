@@ -1,0 +1,6 @@
+description: List running containers with their names, images, and status.
+
+steps:
+  - name: Running Docker containers
+    shell: |
+      docker container ls

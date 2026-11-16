@@ -1,0 +1,6 @@
+description: Show space used by Docker images, containers, volumes, and build cache.
+
+steps:
+  - name: Docker disk usage
+    shell: |
+      docker system df

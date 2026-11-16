@@ -1,0 +1,6 @@
+description: Summarize changes staged for the next commit.
+
+steps:
+  - name: Staged Git diff summary
+    shell: |
+      git --no-pager diff --cached --stat

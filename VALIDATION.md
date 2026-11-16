@@ -25,3 +25,15 @@ check command and Git ref. The setup preview left the target's fixture
 lockfiles byte-identical and created no dependency directories. The checks
 preview did not write its test marker, and the notes preview succeeded in a
 directory without Git history. The CLI's complete local smoke suite passed.
+
+## General-purpose registry expansion
+
+Sir discovered all 46 definitions in an isolated workflow profile. Forty
+workflows completed both a dry run and a real run against disposable Linux
+fixtures. The fixture included a Git repository, sample documents and scripts,
+and a local-only Composer project. Negative cases covered malformed input,
+missing files, an unknown Git ref, and a file named `-`.
+
+The six Docker commands completed separately against an isolated Docker daemon
+and a disposable Compose project. The Compose configuration check also rejected
+malformed YAML.

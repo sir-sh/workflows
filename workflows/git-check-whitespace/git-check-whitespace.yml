@@ -1,0 +1,9 @@
+description: Report whitespace errors in staged and unstaged changes.
+
+steps:
+  - name: Check Git diff whitespace
+    shell: |
+      status=0
+      git --no-pager diff --check || status=$?
+      git --no-pager diff --cached --check || status=$?
+      exit "$status"

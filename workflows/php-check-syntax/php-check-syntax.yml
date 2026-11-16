@@ -1,0 +1,11 @@
+description: "Check a PHP file for syntax errors without executing it."
+
+inputs:
+  path:
+    type: string
+    required: true
+
+steps:
+  - name: "Check PHP syntax"
+    shell: |
+      php -l -f {{shellQuote(path)}}
