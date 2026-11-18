@@ -76,3 +76,5 @@ sir run release-notes --non-interactive --input=base=v0.1.0
 ```
 
 See [validation results](VALIDATION.md) for real-project runs.
+
+[![advertisement](https://ads.servead.net/i/3923dfab-db5f-4f8e-92ef-737ec2839c44.svg)](https://ads.servead.net/c/3923dfab-db5f-4f8e-92ef-737ec2839c44)
